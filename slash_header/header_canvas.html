@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>斜线表头-canvas1</title>
+	<link rel="stylesheet" href="css/reset.css"/>
+	<style>
+		table.table_saas{
+			width:100%;
+			border-top:1px solid #e0e0e0;
+			border-left:1px solid #e0e0e0;
+			font-size:12px;
+			color:#545556;
+		}
+		table.table_saas th{
+			line-height:30px;
+			border-right:1px solid #e0e0e0;
+			border-bottom:1px solid #e0e0e0;
+			font-weight:normal;
+			background-color:#f6f7fa;
+			text-align:center;
+		}
+		table.table_saas td{
+			line-height:28px;
+			border-right:1px solid #e0e0e0;
+			border-bottom:1px solid #e0e0e0;
+			text-align:center;
+		}
+		table.table_saas tr:nth-child(even) td{
+			background-color:#f6f7fa;
+		}
+		table.table_saas td[rowspan]{
+			background-color:#fff !important;
+		}
+	</style>
+</head>
+<body style="padding:50px;box-sizing:border-box;">  
+<table class="table_saas">
+	<thead>
+		<tr>  
+            <th class="leri" style="width:240px;border-bottom:none;text-align:right;"><span style="margin-right: 10px;">认证方式</span></th>   
+            <th colspan="3">勾选认证</th>  
+            <th colspan="3">扫描认证</th>  
+            <th colspan="3">合计</th>    
+        </tr>  
+        <tr>  
+            <th class="rito" style="width:240px;border-top:none;text-align:left;"><span style="margin-left: 10px;">发票类型</span></th>  
+            <th>份数</th>
+			<th>金额</th>
+			<th>税额</th>
+			<th>份数</th>
+			<th>金额</th>
+			<th>税额</th>
+			<th>份数</th>
+			<th>金额</th>
+			<th>税额</th>
+        </tr> 
+	</thead>
+	<tbody>
+		<tr>
+			<td>增值税专用发票</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+		</tr>
+		<tr>
+			<td>货物运输业增值税专用发票</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+		</tr>
+	</tbody>
+</table>
+<canvas id="myCanvas" width='500' height='500' style="position: absolute;left: 0;top: 0;z-index: 1;">Canvas画斜线</canvas>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">  
+var myCanvas = document.getElementById("myCanvas");  
+context =  myCanvas.getContext("2d");  
+// canvas表格斜线  
+function aa(){  
+    var x1 = $('.leri').offset().left;//左上角点相对网页中x坐标  
+    var y1 = $('.leri').offset().top+1;//<span style="font-family: Arial, Helvetica, sans-serif;">左上角点相对网页中y坐标</span>  
+    var w = $('.leri').width();   
+    var h = $('.leri').height();  
+    var x2 = x1+w; //右下角点x  
+    var y2 = y1+h*2;//右下角点y  
+          
+    console.log("x1="+x1+",y1="+y1+",x2="+x2+",y2="+y2);  
+  
+    context.moveTo(x1,y1);  
+    context.lineTo(x2,y2);  
+    context.strokeStyle = '#e0e0e0';  
+    context.stroke();  
+    context.closePath();  
+  
+    context.beginPath();   //虽然没什么用，但是清空画布很有用，没有他清空不了。  
+    context.fillStyle = "rgb(255,255,255)";  
+    context.fillRect(0,0,10,10);  
+    context.closePath();  
+      
+}  
+aa();  
+$(window).resize(function() {//当窗口大小发生变化时，重新画线  
+    context.clearRect(0,0,500,500);//清空画布  
+    aa();  
+})  
+</script>  
+</body>  
+</html>

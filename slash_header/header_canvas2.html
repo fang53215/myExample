@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>斜线表头-canvas2</title>
+	<link rel="stylesheet" href="css/reset.css"/>
+	<style>
+		table.table_saas{
+			width:100%;
+			border-top:1px solid #e0e0e0;
+			border-left:1px solid #e0e0e0;
+			font-size:12px;
+			color:#545556;
+		}
+		table.table_saas th{
+			line-height:30px;
+			border-right:1px solid #e0e0e0;
+			border-bottom:1px solid #e0e0e0;
+			font-weight:normal;
+			background-color:#f6f7fa;
+			text-align:center;
+		}
+		table.table_saas td{
+			line-height:28px;
+			border-right:1px solid #e0e0e0;
+			border-bottom:1px solid #e0e0e0;
+			text-align:center;
+		}
+		table.table_saas tr:nth-child(even) td{
+			background-color:#f6f7fa;
+		}
+		table.table_saas td[rowspan]{
+			background-color:#fff !important;
+		}
+	</style>
+</head>
+<body style="padding:50px;box-sizing:border-box;" onload="line()">  
+<table class="table_saas">
+	<thead>
+		<tr>  
+			<th id="shedule_table_header_first" rowspan="2" style="width:240px;height:60px">  
+			    <canvas width="240" height="60" id="myCanvas"></canvas>  
+			</th>  
+            <th colspan="3">勾选认证</th>  
+            <th colspan="3">扫描认证</th>  
+            <th colspan="3">合计</th>    
+        </tr>  
+        <tr> 
+            <th>份数</th>
+			<th>金额</th>
+			<th>税额</th>
+			<th>份数</th>
+			<th>金额</th>
+			<th>税额</th>
+			<th>份数</th>
+			<th>金额</th>
+			<th>税额</th>
+        </tr> 
+	</thead>
+	<tbody>
+		<tr>
+			<td>增值税专用发票</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+		</tr>
+		<tr>
+			<td>货物运输业增值税专用发票</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+			<td>XXX</td>
+		</tr>
+	</tbody>
+</table>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">  
+function line(){  
+   var myCanvas = document.getElementById("myCanvas");  
+   var width = myCanvas.width;  
+   var height = myCanvas.height;  
+   var ctx = myCanvas.getContext("2d");  
+   ctx.strokeStyle="#e0e0e0";  
+   ctx.moveTo(0,0);  
+   ctx.lineTo(width,height);  
+   ctx.stroke();  
+
+   ctx.font = "12px Microsoft YaHei";  
+   ctx.fillStyle = "#545556";
+   ctx.fillText("认证方式",26,46);  
+   ctx.fillText("发票类型",164,23);  
+}
+</script>  
+</body>  
+</html>
