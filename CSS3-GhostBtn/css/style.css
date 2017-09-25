@@ -1,0 +1,45 @@
+@chartset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: #333;
+}
+.box{
+	width: 800px;
+	height: 300px;
+	margin: 50px auto;
+}
+.box .item{
+	float: left;
+	width: 220px;
+	height: 300px;
+	margin:0 20px;
+}
+.box .item .icon{
+	display: block;
+	width: 100%;
+	height: 190px;
+	transition: 0.2s ease-out;
+	-webkit-transition: 0.2s ease-out;
+	-moz-transition: 0.2s ease-out;
+	-o-transition: 0.2s ease-out;
+}
+.box .item.item-mission .icon{
+	background: url(../images/mission.png) no-repeat center;
+}
+.box .item.item-play .icon{
+	background: url(../images/play.png) no-repeat center;
+}
+.box .item.item-touch .icon{
+	background: url(../images/touch.png) no-repeat center;
+}
+.box .item .icon:hover{
+	transform: rotate(360deg) scale(1.2);
+	-ms-transform: rotate(360deg) scale(1.2);
+	-webkit-transform: rotate(360deg) scale(1.2);
+	-moz-transform: rotate(360deg) scale(1.2);
+	-o-transform: rotate(360deg) scale(1.2);
+}

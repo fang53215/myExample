@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>transition-timing-function</title>
+	<style type="text/css">
+	.progress-bar{width: 40px;height: 40px;background-color: blue;}
+	.progress-bar:hover{width: 800px;}
+	#bar1{-webkit-transition:width 5s linear;
+		  -moz-transition:width 5s linear;
+		  -o-transition:width 5s linear;}
+	#bar2{-webkit-transition:width 5s ease;
+		  -moz-transition:width 5s ease;
+		  -o-transition:width 5s ease;}
+	#bar3{-webkit-transition:width 5s ease-in;
+		  -moz-transition:width 5s ease-in;
+		  -o-transition:width 5s ease-in;}
+	#bar4{-webkit-transition:width 5s ease-out;
+		  -moz-transition:width 5s ease-out;
+		  -o-transition:width 5s ease-out;}
+	#bar5{-webkit-transition:width 5s ease-in-out;
+		  -moz-transition:width 5s ease-in-out;
+		  -o-transition:width 5s ease-in-out;}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<p>linear</p>
+		<div class="progress-bar" id="bar1"></div>
+
+		<p>ease</p>
+		<div class="progress-bar" id="bar2"></div>
+
+		<p>ease-in</p>
+		<div class="progress-bar" id="bar3"></div>
+
+		<p>ease-out</p>
+		<div class="progress-bar" id="bar4"></div>
+
+		<p>ease-in-out</p>
+		<div class="progress-bar" id="bar5"></div>
+	</div>
+</body>
+</html>
