@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>幽灵按钮</title>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
 	<div class="box">
@@ -19,7 +19,7 @@
 		</div>
 		<div class="item item-play">
 			<span class="icon"></span>
-			<a href="#" class="button" data-text="This my Play">
+			<a href="#" class="button" data-text="This my Play my Play my Play">
 				<span class="line line-top"></span>
 				<span class="line line-right"></span>
 				<span class="line line-bottom"></span>
@@ -29,7 +29,7 @@
 		</div>
 		<div class="item item-touch">
 			<span class="icon"></span>
-			<a href="#" class="button" data-text="This my Touch">
+			<a href="#" class="button" data-text="This my Touch school Touch school">
 				<span class="line line-top"></span>
 				<span class="line line-right"></span>
 				<span class="line line-bottom"></span>
@@ -37,6 +37,24 @@
 				TOUCH
 			</a>
 		</div>
+		<div class="tips"><em></em><span></span></div>
 	</div>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".box .item .button").hover(function(){
+			$(".tips em").html($(this).attr("data-text"));
+			var posButton = $(this).offset().left;
+			var posParent = $(".box").offset().left;
+			var pos = posButton - posParent;
+			var dis = ($(".tips").outerWidth()-$(this).outerWidth())/2;
+			var l = pos - dis;
+			$(".tips").css({'left':l}).stop(true,true).animate({"opacity":"1","top":"130px"},300);
+		},function(){
+			$(".tips").stop(true,true).animate({"opacity":"0","top":"100px"},300);
+		});
+	});
+</script>
 </body>
 </html>
